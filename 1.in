@@ -1,0 +1,99 @@
+
+# Observed CMD 
+obscmd = '/scratch1/pmassana/SMASH/SMC_test_all_no3/outputs/region_1_CMD_abs.fits.gz' 
+obsExpXaxis = G-I 
+obsExpYaxis = I 
+
+# Model CMD 
+modcmd = '/scratch1/pmassana/SMASH/SMC_test_all_no3/Mother_CMD/Mother_1.disno99.fits.gz' 
+modExpXaxis = G-I 
+modExpYaxis = I 
+modExpAge = Age 
+modExpMetallicity = Metal 
+
+# CMD color and magnitude ranges 
+ran_c = [-2.0, 3.5] 
+ran_m = [5.0, -5.0] 
+
+# Bundles (one line per bundle: b=[[x_vertices], [y_vertices]]) 
+b = [[0.36642, -0.03544, -0.02288, 1.79801, 2.19987, 1.55941, 1.35849, 1.23291, 1.13245, 1.06966, 1.04454, 0.94408, 0.61757, 0.36642], [0.4662, -0.11633, -0.69887, -3.79999, -3.32025, -1.81253, -1.2814, -0.8188, -0.3562, 0.1578, 0.44906, 1.01446, 0.4148, 0.4662]] 
+b = [[-0.03809, 0.99828, 0.64825, 0.51098, 0.35999, 0.2639, 0.14722, -0.01064, -0.14104, -0.31949, -0.53912, -0.58717, -0.5048, -0.42931, -0.29204, -0.17536, -0.12045, -0.08614, -0.03809], [4.51872, 4.53463, 3.42055, 2.86351, 2.16323, 1.73351, 1.33563, 1.30379, 1.54253, 1.829, 2.14731, 2.27464, 2.48154, 2.62478, 2.87942, 3.19773, 3.4683, 3.81844, 4.51872]] 
+b = [[-0.5803, -0.31949, -0.14791, 0.00995, -0.1685, -0.28518, -0.34695, -0.38126, -0.44303, -0.5048, -0.58717, -0.69698, -0.84111, -0.88916, -0.86857, -0.82052, -0.77934, -0.73816, -0.69012, -0.6558, -0.5803], [2.25872, 1.79717, 1.5107, 1.2083, 0.41253, -0.1286, -0.76522, -1.01986, -1.44958, -1.86338, -2.62732, -3.29577, -2.80239, -2.18169, -1.27451, -0.76522, -0.11268, 0.39661, 1.04915, 1.49478, 2.25872]] 
+b = [[-0.75875, -0.03809, -0.08614, -0.12045, -0.1685, -0.27831, -0.41558, -0.5048, -0.57344, -0.66266, -0.71071, -0.75875, -0.79307, -0.85484, -0.89602, -1.32155, -1.32841, -1.32841, -1.30096, -1.25292, -1.25292, -1.19115, -1.12251, -1.04015, -0.97152, -0.88916, -0.82052, -0.75875], [4.55055, 4.53463, 3.8821, 3.50013, 3.1659, 2.89534, 2.65661, 2.52928, 2.30647, 1.54253, 1.16056, 0.47619, -0.04902, -0.7493, -1.27451, -1.32226, -0.87662, -0.14451, 0.41253, 1.04915, 1.57436, 2.11548, 2.48154, 2.97492, 3.27731, 3.65928, 4.07308, 4.55055]] 
+b = [[0.66198, 0.36685, 0.25704, 0.13349, 0.03741, 0.35999, 0.61393, 0.9571, 0.92279, 0.84729, 0.66198], [3.48421, 2.17914, 1.7176, 1.33563, 1.19239, 0.46028, 0.42844, 1.01732, 2.06774, 2.72027, 3.48421]] 
+
+# Bin sizes in color and magnitude (one line per bundle) 
+bin_cm = [0.06, 0.8] 
+bin_cm = [0.02, 0.1] 
+bin_cm = [0.03, 0.2] 
+bin_cm = [0.1, 0.8] 
+bin_cm = [0.02, 0.1] 
+
+# Age (in Gyr) and metallicity (in Z) bins 
+age = [0.03, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 13.9] 
+met = [0.0001, 0.0002, 0.0004, 0.0007, 0.0011, 0.0016, 0.0022, 0.0029, 0.0037, 0.0046, 0.0056, 0.0067, 0.0079, 0.009, 0.012, 0.016, 0.02, 0.0249] 
+
+# Parameters to calculate met bins 
+number_of_bins = 18 
+z_min = 0.0001 
+z_max = 0.025 
+z_sun = 0.0198 
+
+# Normalizing constants (intmother in M_sun; areareg in pc^2) 
+intmother = 103733463.584 
+areareg = 161357.336218 
+
+# Offset observed CMD in color & magnitude (i.e. ~ reddening & distance)... 
+# (S)earch minimum, check only (O)ne position, or sample full (G)rid? 
+dist_redd = 'S' 
+
+# ...centered on: 
+dist_redd_center = [0.0, 0.0] 
+
+# If sampling the full grid, how many repeats per dist/redd offset? 
+n_repeats = 1 
+
+# Refine the grid to find the minimum in the chi2 map? 
+refine_grid = True 
+
+# Number of binning offsets in color and magnitude 
+shifts = (2, 2) 
+
+# Also shift the binning in age? 
+refine_age = True 
+
+# Number of iterations of Poissonian resampling of the observed CMD 
+nPoisson = 2 
+
+# Fit foreground/background component? 
+fit_fld = False 
+
+# Field CMDs 
+fldcmd = 'Field_23.fld.fits' 
+
+# Index (0-based) of the columns containing the magnitudes and the 
+#    field population ID (<1 for 'single') 
+fld_cols = (3, 5, -1) 
+
+# Flip time axis? (True -> time from right to left) 
+flip_timeaxis = False 
+
+# Number of processors to use when running in parallel 
+nProcessors = 22 
+
+# Output files: 
+fname_all_alphasX2 = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/all_chi2_alphas.out' 
+fname_all_alphas   = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/all_alphas.out' 
+fname_all_alphasp  = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/all_alphas_poisson.out' 
+fname_chi2map      = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/chi2mapM.ps' 
+fname_hess_cmds    = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/hess_cmdsM.ps' 
+fname_hess_comp    = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/hess_compM.ps' 
+fname_hesscomp_fld = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/hess_comp_fld.ps' 
+fname_sfh          = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/sfhM.ps' 
+fname_sfh_shifts   = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/sfh_shiftagebinsM.ps' 
+fname_solution_cmd = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/solution_cmd.out' 
+fname_solution_fld = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/solution_fld.out' 
+fname_solution     = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/solution.out' 
+fname_sol_vs_time  = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/sol_vs_time.out' 
+fname_output_log   = '/scratch1/pmassana/SMASH/SMC_test_all_no3/sfh_solve/1/output_log.out' 
+
